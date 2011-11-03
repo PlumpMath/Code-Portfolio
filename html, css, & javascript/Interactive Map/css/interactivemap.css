@@ -1,0 +1,160 @@
+.map_container {
+	width: 1000px;
+	height: 642px; 	
+	position: relative; /* important for maps dot positioning */
+	
+	border: 5px double #2B0702;
+	
+	padding: 0;
+	background: url(../images/agsem_map_web.jpg);
+	background-repeat: no-repeat;
+	background-position-x: 0;
+	background-position-y: 0;
+}
+
+	.map_container a.map_dot {
+		display: block; /* behaves like a p or div tag */
+		width: 20px;
+		height: 20px;
+		
+		position: absolute;
+
+		background-image: url(../images/map_dots.png);
+		background-repeat: no-repeat;
+		background-position-x: 0px 0px;
+	}
+
+		.map_container a.map_dot:hover {
+			cursor: pointer;
+			background-position: 0px -20px;
+		}
+		
+		.map_container a.map_dot:hover {
+			cursor: pointer;
+			background-position: 0px -20px;
+		}
+		
+			.map_container a.map_dot h3 {
+				visibility: hidden;
+				
+				position: absolute;
+				right: 0;
+				bottom: 25px;
+				
+				width: 150%;
+				padding: 5px;
+				display: table;
+				
+				background-color: rgba(216, 205, 186, 0.9);
+				font: 16px 'AWConquerorSansLight';
+				color: #2B0702;
+				z-index: 50;
+			}
+			
+			.map_container a.map_dot:hover > h3
+			{
+				visibility: visible;
+			}
+		
+		
+		.map_container a.map_dot.selected {
+			cursor: pointer;
+			background-position: 0px -40px;
+		}
+	
+	.map_form_category {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+	}
+	
+	.map_detail_container
+	{
+		width: 330px;
+		height: 500px;
+		
+		position:absolute;
+		right: 20px;
+		bottom: 20px;
+	}
+
+		.map_detail
+		{
+			position: relative;
+			
+			width: 100%;
+			height: 100%;
+			
+			margin: 0;
+			
+			background: url(../images/map_welcome.jpg) no-repeat center;
+			
+			-webkit-box-shadow: 7px 7px 5px rgba(50, 50, 50, 0.75);
+			-moz-box-shadow:    7px 7px 5px rgba(50, 50, 50, 0.75);
+			box-shadow:         7px 7px 5px rgba(50, 50, 50, 0.75);
+			
+			border: 2px solid #2B0702;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+		}
+		
+		/* Background Images for Individual Buildings/Exhibits */
+		.map_detail#farmhouse 		  	   { background: url(../images/map_farmhouse.jpg) no-repeat center; }
+		.map_detail#school_times_past	   { background: url(../images/map_school_of_times_past.jpg) no-repeat center; }
+		.map_detail#blacksmithing 	  	   { background: url(../images/map_blacksmithing.jpg) no-repeat center;	}
+		.map_detail#steam_traction_engines { background: url(../images/map_steam_traction.jpg) no-repeat center; }
+		.map_detail#mike_ashbeck 		   { background: url(../images/map_mike_ashbeck.jpg) no-repeat center; }
+		.map_detail#short_track_railroad   { background: url(../images/map_short_track_railroad.jpg) no-repeat center; }
+		.map_detail#weavers 			   { background: url(../images/map_weavers.jpg) no-repeat center; }
+		.map_detail#steam_engine_row 	   { background: url(../images/map_steam_engine_row.jpg) no-repeat center; }
+		.map_detail#gas_engine_row 		   { background: url(../images/map_gas_engine_row.jpg) no-repeat center; }
+		
+			.map_detail .map_info
+			{
+				background-color: rgba(43, 7, 2, .9);
+				width: 330px;
+				
+				position: absolute;
+				bottom: 0px;
+				
+				border-top: 5px double #d8cdba;
+			}
+			
+				.map_detail .map_info h2
+				{
+					font: 21px 'AWConquerorInlineRegular';
+					color: #d8cdba;
+					
+					padding: 10px;
+				}
+				
+				.map_detail .map_info p
+				{
+					font: 16px 'AWConquerorSansLight';
+					color: #d8cdba;
+					
+					padding: 0 10px 10px 10px;
+				}
+				
+					.map_detail .map_info p a
+					{
+						color: #d8cdba;
+					}
+					
+					.map_detail .map_info p a:hover
+					{
+						text-decoration: none;
+					}
+					
+				.hidden_map_detail_container
+				{
+					display: none;
+				}
+	.clear_both
+	{
+		clear: both;
+	}
+
+/* Individual Parts of the Map */
+

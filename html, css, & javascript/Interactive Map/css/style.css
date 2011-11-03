@@ -1,0 +1,234 @@
+body {
+	background: #000000 url('../images/bg-trainmuseum-sepia.jpg') fixed 100% top;
+}
+
+
+
+.container_12 {
+	background-color: #dcceba;
+	box-shadow:2px 2px 5px #000, -2px -2px 5px #000;
+	
+}
+
+header {	
+	height: 155px;
+	background-image: url('../images/bg-header.png');
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+
+	header img#logo {
+		position: absolute;
+		left: -70px;
+		top: 23px;
+		z-index: 50;
+	}
+	
+	header nav {
+		z-index: 100;
+	}
+	
+	header nav ul {
+		z-index: 100;
+		position: absolute;
+		
+		top: 107px;
+		z-index: 100;
+	}
+	
+		header nav ul li {
+			font: 28px 'DinerFattRegular';
+			letter-spacing: 2px;
+			z-index: 100;
+			
+			float: left;
+		}
+	
+			header nav ul li a {
+				color: #dcceba;
+				z-index: 100;
+				
+				padding: 14px 15px;
+				position: relative;
+				
+				text-decoration: none;
+			}
+			
+			header nav ul li a:hover {
+				text-decoration: underline;
+				color: white;
+			}
+			
+			header nav ul li:hover > ul {
+				visibility: visible;
+			}
+			
+				header nav ul li ul {
+					width: auto;
+					height: 50px;
+					top: -70px;
+					visibility: hidden;
+				}
+				
+					header nav ul li ul li {
+						float: left;
+						letter-spacing: 2px;
+					}
+				
+						header nav ul li ul li a {
+							color: #dcceba;
+							padding-bottom: 30px;
+						}
+
+	header nav ul#left-nav {
+		float: left;
+		left: 20px;
+	}
+	
+	header nav ul#right-nav {
+		right: 20px;
+	}
+
+
+
+#body-wrapper {	
+	width: 1004px !important;
+	border: 3px solid #2B0702;
+	background-color: #eee;
+    margin-top: 40px;
+}
+
+	#welcome {
+		float: left;
+		width: 475px;
+		height: 200px;
+		margin: 15px;
+		
+		background-color: #dcceba;
+	}
+	
+		#welcome h1 {
+			font: 18px 'AWConquerorInlineRegular';
+			color: #2b0702;
+			padding: 15px 15px 0 15px;
+		}
+		
+		#welcome p {
+			font: 16px 'AWConquerorSansLight';
+			padding: 0 15px 15px 15px;
+		}
+
+
+#blog {
+	background: #dcceba;
+
+	float: left;
+	width: 233px;
+	height: 200px;
+	
+	margin: 15px 15px 15px 0;
+}
+
+	#blog h3 {
+		color:#efe9d1;
+    	font: 18px 'PTSerifRegular';
+		margin: 5px;
+	}
+
+#calendar {
+	float: left;
+	height: 200px;
+	width: 233px;
+	margin: 15px 15px 15px 0;
+	
+	background: #dcceba;
+}
+
+	#calendar h3 {
+		color:#efe9d1;
+    	font: 18px 'PTSerifRegular';
+		
+	}
+
+/******************
+ * FOOTER SECTION *
+ ******************/
+footer {
+	border-top: 10px double #efe9d1;
+	background-color: #2B0702;
+	padding-bottom: 15px;
+}
+
+	footer section#site-map {
+		
+		padding: 25px;
+		
+		/* Column Settings */
+		-moz-column-count: 3;
+		-moz-column-gap: 10px;
+		-webkit-column-count: 3;
+		-webkit-column-gap : 20px;
+		-moz-column-rule-color:  #ccc;
+		-moz-column-rule-style:  solid;
+		-moz-column-rule-width:  1px;
+		-webkit-column-rule-color:  #ccc;
+		-webkit-column-rule-style: solid ;
+		-webkit-column-rule-width:  1px;
+	}
+
+	footer section#site-map ol li {
+		padding-top: 20px;
+	}
+
+	footer section#site-map ol li a {
+		font: 18px 'Museo300';
+		color: 	#efe9d1;
+		text-decoration: none;
+	}
+	
+		footer section#site-map ol li ol li {
+			position: relative;
+			background-image: url('../images/gears.png');
+			background-repeat: no-repeat;
+			background-position: 0px 6px;
+			 
+			text-indent: 28px;
+			padding: 8px 0 1px 0;
+		}
+	
+			footer section#site-map ol li ol li a {
+				font-size: 14px;
+				color: 	#efe9d1;
+				text-decoration: none;
+			}
+
+	footer section#copyright {
+		font: 12px 'Museo300';
+		color: 	#efe9d1;
+		position: relative;
+		margin-top: 20px;
+	}
+
+		footer section#copyright a#email {
+			color: 	#efe9d1;
+			position: absolute;
+			left: 25px;
+			text-decoration: none;
+		}
+		
+		footer section#copyright a#email:hover {
+			text-decoration: underline;
+		}
+		
+		footer section#copyright p#address {
+			display: block;
+			margin: 0 auto;
+			text-align: center;
+		}
+		
+	
+		footer section#copyright p#phone-number {
+			position: absolute;
+			right: 25px;
+			top: 0px;
+		}

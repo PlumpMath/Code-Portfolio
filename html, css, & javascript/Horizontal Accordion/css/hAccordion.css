@@ -1,0 +1,132 @@
+.accordion_container {
+	margin-top: 50px;
+}
+
+.accordion, .accordion *{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+    
+    position: relative;
+}
+
+
+ul.hAccordion li div.haHeaderContainer {
+	
+	/* Important Property - Don't change */
+    position: relative;
+    
+    /* CSS3 Gradient */
+	background-image: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.03, rgb(54,12,7)),
+	    color-stop(0.72, rgb(73,16,9)),
+	    color-stop(1, rgb(102,24,15))
+	);
+	background-image: -moz-linear-gradient(
+	    center bottom,
+	    rgb(54,12,7) 3%,
+	    rgb(73,16,9) 72%,
+	    rgb(102,24,15) 100%
+	);
+	
+	border: 1px solid #2b0702;
+}
+
+	ul.hAccordion li:first-child div.haHeaderContainer {
+    
+		 /* Border Radius */
+	    -webkit-border-top-left-radius: 10px;
+	    -webkit-border-bottom-left-radius: 10px;
+	    -moz-border-radius-topleft: 10px;
+	    -moz-border-radius-bottomleft: 10px;
+	    border-top-left-radius: 10px;
+	    border-bottom-left-radius: 10px;
+	}
+	
+	
+        ul.hAccordion li div.haHeaderContainer h2 {
+            color: white;
+            
+                 -moz-transform: rotate(-90deg);  /* FF3.5+ */
+               -o-transform: rotate(-90deg);      /* Opera 10.5 */ 
+          -webkit-transform: rotate(-90deg);      /* Saf3.1+, Chrome */ 
+              -ms-transform: rotate(-90deg);      /* IE9 */
+                  transform: rotate(-90deg);  
+                     filter: progid:DXImageTransform.Microsoft.Matrix(/* IE6�IE9*/  
+                             M11=6.123233995736766e-17, M12=1, M21=-1, M22=6.123233995736766e-17, sizingMethod='auto expand');
+                       zoom: 1;
+            
+            position: absolute;
+            top: 0px;
+            bottom: 40px;
+            width: 392px;
+            
+            /* Text Setings */
+            font: 18px 'Museo300';
+            color: #dcceba;
+            text-shadow: 2px 2px 2px #2b0702, -2px -2px 2px #2b0702;
+        }
+
+    ul.hAccordion li div.haBodyContainer {
+        
+        background-color: #dcceba;
+        border-top: 1px solid #2b0702;
+        
+        overflow: hidden;
+        
+        /* Important Properties - Don't Change */
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
+
+        ul.hAccordion li:last-child div.haBodyContainer {
+            /* Border Radius  */
+            -webkit-border-top-right-radius: 10px;
+            -webkit-border-bottom-right-radius: 10px;
+            -moz-border-radius-topright: 10px;
+            -moz-border-radius-bottomright: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        /* Accordion Panel Background Images */ 
+        ul.hAccordion li div.haBodyContainer#exhibits-blacksmithing        { background: url(../images/exhibits-blacksmithing.jpg) top center;        } /* Exhibit: Blacksmithing          */ 
+        ul.hAccordion li div.haBodyContainer#exhibits-farmhouse            { background: url(../images/exhibits-farmhouse.jpg) top center;            } /* Exhibit: Farmhouse              */ 
+        ul.hAccordion li div.haBodyContainer#exhibits-gasdieseltractors    { background: url(../images/exhibits-gasdieseltractors.jpg) top center;    } /* Exhibit: Gas/Diesel Tractors    */ 
+        ul.hAccordion li div.haBodyContainer#exhibits-gasenginerow         { background: url(../images/exhibits-gasenginerow.jpg) top center;         } /* Exhibit: Gas Engine Row         */ 
+        ul.hAccordion li div.haBodyContainer#exhibits-shorttrackrailroad   { background: url(../images/exhibits-shorttrackrailroad.jpg) top center;   } /* Exhibit: Short Track Railroad   */ 
+        ul.hAccordion li div.haBodyContainer#exhibits-steamenginerow       { background: url(../images/exhibits-steamenginerow.jpg) top center;       } /* Exhibit: Steam Engine Row       */
+        ul.hAccordion li div.haBodyContainer#exhibits-steamtractionengines { background: url(../images/exhibits-steamtractionengines.jpg) top center; } /* Exhibit: Steam Traction Engines */ 
+
+            ul.hAccordion li div.haBodyContainer div.haBody {
+                position: absolute;
+                bottom: 0px;
+                
+                background: rgba(255, 255, 255, 0.8);
+                /*background: rgba(43, 7, 2, .9);*/
+                width: 100%;
+            }
+    
+                ul.hAccordion li div.haBodyContainer div.haBody h3 {
+                    font: 24px 'MuseoSlab500';
+                    color: #2b0702;
+                    text-shadow: 2px 2px 2px #b78754;
+                    text-transform: uppercase;
+                    
+                    padding: 10px 10px 0 10px;
+                }
+	    
+                ul.hAccordion li div.haBodyContainer div.haBody p {
+                    font: 18px 'PTSerifRegular';
+                    color: #2b0702;
+                    
+                    padding: 10px;
+                }
+                
+                ul.hAccordion li div.haBodyContainer div.haBody a {
+                    color: #2b0702;
+                }
