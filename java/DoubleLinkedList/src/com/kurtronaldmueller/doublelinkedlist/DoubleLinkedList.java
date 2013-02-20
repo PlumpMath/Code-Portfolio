@@ -29,10 +29,12 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
      * @param <E> A generic data type.
      */
     private static class Node<E> {
-
-        private E data;              // the data item of the node
-        private Node<E> next = null; // the link to the next node
-        private Node<E> prev = null; // the link to the previous node
+        /** the data item of the node */
+        private E data;
+        /** the link to the next node */
+        private Node<E> next = null;
+        /* the link to the previous node */
+        private Node<E> prev = null; 
 
         /**
          * Construct a node with the given data value.
@@ -64,9 +66,12 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
     @SuppressWarnings("unused")
     private class DoubleLinkedListIterator implements ListIterator<E> {
 
-        private Node<E> nextItem;         // a reference to the next item
-        private Node<E> lastItemReturned; // a reference to the node that was last returned by the class' next/previous method.
-        private int index;                // the index of the current item
+        /** a reference to the next item */
+        private Node<E> nextItem;
+        /** A reference to the node that was last returned by the class' next/previous method. */
+        private Node<E> lastItemReturned;
+        /** the index of the current item */
+        private int index;
 
         /**
          * Constructs an iterator object that will reference the item in position
@@ -96,7 +101,6 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
             // start at the beginning of the list and traverse through the list until
             // the index reaches the desired position
             else {
-                // start at the first item in the linked list
                 this.nextItem = head;
 
                 // traverse through the list until immediately before the desired position
@@ -115,9 +119,6 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
          * @return True if node ahead of the current node exists.
          */
         public boolean hasNext() {
-
-            // examines if the next item is either a node or does not exist && 
-            // returns the result
             return this.nextItem != null;
         }
 
@@ -137,10 +138,10 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
             // Once we've checked that a next node exists, we can than move forward
             // in the list. This next series of statements is simply traversing from
             // the current node to the next node.
-            this.lastItemReturned = this.nextItem; // store the next node into current node
-            this.nextItem = this.nextItem.next;    // the node ahead of the next node becomes the next node
-            this.index++;                          // reflect the new position with the index variable
-            return this.lastItemReturned.data;     // return the new node's data
+            this.lastItemReturned = this.nextItem;
+            this.nextItem = this.nextItem.next;
+            this.index++;
+            return this.lastItemReturned.data;
         }
 
         /**
@@ -149,6 +150,7 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
          * @return True if a node previous to the current one exists.
          */
         public boolean hasPrevious() {
+
             // a previous node exists if:
             // 1. the next item is null (i.e. no node exists) && the size is 
             // equal to or greater than 1 OR
@@ -180,10 +182,11 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
                 this.nextItem = this.nextItem.prev;
             }
 
-            this.lastItemReturned = this.nextItem; // the last returned item becomes the node that was just iterated over
-            this.index--; // reduce the list index by one
+            // the last returned item becomes the node that was just iterated over
+            this.lastItemReturned = this.nextItem; 
+            this.index--;
 
-            return this.lastItemReturned.data; // return the data item that was just iterated over
+            return this.lastItemReturned.data;
         }
 
         /**
@@ -227,9 +230,11 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
                 this.nextItem.prev      = newNode;            // the next item's previous link points to the new node
             }
 
-            size++;                  // increase the total size of the list
-            index++;                 // increment the index position of the iterator
-            lastItemReturned = null; // the last item returned is null since the iterator didn't traverse any nodes
+            size++;
+            index++;
+
+            // the last item returned is null since the iterator didn't traverse any nodes
+            lastItemReturned = null; 
         }
 
         /**
@@ -272,7 +277,6 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
             }
             // remove a node in the middle of the list
             else {
-
                 lastItemReturned.next.prev = lastItemReturned.prev; // set the next item's previous link to the current item's previous link
                 lastItemReturned.prev.next = lastItemReturned.next; // set the previous item's next link to the curent item's next link
                 lastItemReturned.next = null; // detach the current item's previous & next links
@@ -290,12 +294,11 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
 
             // if the index is greater than 0, iterate backward in the list by one
             if( index > 0 ) {
-                this.previous(); // go backward
-                return index;    // return the index
+                this.previous();
+                return index;
             }
 
-            // if the index is equal to 0, -1 is returned to signify that the
-            // iterator cannot go backwards any further
+            // -1 signifies that the iterator cannot go backwards any further
             return -1;
         }
 
@@ -346,7 +349,7 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
      */
     @SuppressWarnings("unchecked")
     public void add( int position, Object entry ) {
-        listIterator( position ).add( (E) entry); // use the iterator to traverse to the position and insert the object
+        listIterator( position ).add( (E) entry); 
     }
 
     /**
@@ -355,7 +358,7 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
      * @param entry The entry to add into the Double Linked List.
      */
     public void addFirst( E entry ) {
-        listIterator().add( entry ); // use the iterator to traverse to the position & insert the entry
+        listIterator().add( entry );
     }
 
     /**
@@ -364,7 +367,7 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
      * @param entry The entry to add to the end of the list.
      */
     public void addLast( E entry ) {
-        listIterator( size ).add( entry ); // use the iterator to traverse to to the end of the list & insert the entry
+        listIterator( size ).add( entry );
     }
 
     /**
@@ -376,11 +379,7 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
      */
     @SuppressWarnings("unchecked")
     public Object set( int position, Object entry ) {
-
-        // start the list iterator at the specified position & set the entry
         listIterator( position ).set( (E) entry );
-
-        // return the new entry
         return (E) entry;
     }
 
@@ -401,8 +400,6 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
      * @return The first entry in the double linked list.
      */
     public E getFirst() {
-
-        // start the iterator at the beginning of the list & return the next entry
         return (E) listIterator( 0 ).next();
     }
 
@@ -412,8 +409,6 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
      * @return The last entry in the double linked list.
      */
     public E getLast() {
-
-        // start the iterator at the end of hte list & return the previous entry
         return (E) listIterator( size ).previous();
     }
 
@@ -429,19 +424,16 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
         // reset the iterator
         iterator = listIterator();
 
-        // while there are more elements in the list
         while( iterator.hasNext() ) {
 
-            // check to see if the next node's entry is equal to the passed in
-            // entry
+            // check to see if the next node's entry is equal to the passed in entry
             if( iterator.next().equals( (E) obj ) ) {
-                iterator.remove(); // removes the last entry that was iterated over
-                return true;       // a remove operation was performed, so return true
+                iterator.remove();
+                return true;
             }
         }
 
-        // the iterator has gone through the list & has not found the passed
-        // in object so return false
+        // the iterator has gone through the list & has not found the object
         return false;
     }
 
@@ -452,7 +444,6 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
      * @return The entry at the specified position.
      */
     public E remove( int position ) {
-
         iterator = listIterator( position );
         E removed = iterator.next();
         iterator.remove();
@@ -479,12 +470,10 @@ public class DoubleLinkedList<E> extends AbstractList implements List {
         // reset the iterator to the first in the list
         iterator = listIterator( 0 );
 
-        String s = ""; // stores the elements in the string
-        int position = 0; // the current position in the list
+        String s = "";
+        int position = 0;
 
-        // iterate through the list 
         while( iterator.hasNext() ) {
-            // store the position index & the element at that location
             s += position + ": " + iterator.next() + "\n";
             position++;
         }
