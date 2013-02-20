@@ -1,0 +1,46 @@
+$default-menu-margin: 110px 0 0 0;
+$default-menu-float: right;
+
+$default-li-margin: 0 17px;
+$default-li-float: left;
+
+/*
+ * This mixin is used for menus found throughout the site. The default menu definition
+ * is for the main menu found in the header.
+ */
+@mixin menus( $elements,                  // the element's name: should contain list wrapper & list element
+	      $margin : $default-menu-margin, // the menu's margin
+	      $float  : $default-menu-float,  // which way the menu should float (i.e. left or right)
+	      $li-margin : $default-li-margin,
+	      $li-float : $default-li-float
+			  ) {
+	@each $element in $elements {
+		#{ $element } {
+			margin: $margin;
+			float: $float;
+
+			// stylize the actual li elements of the menu
+			@include menu-items( $li-margin, $li-float );
+		}
+	} // end @each $element in $elements
+} // end @mixin menus
+
+/*
+ * This mixin is for menu li items.
+ */
+@mixin menu-items( $margin : $default-menu-margin, 
+				   $float  : $default-li-float 
+				   ) {
+	li {
+		margin: $margin;
+		float: $float;
+
+		&:first-child {
+			margin-left: 0;
+		};
+
+		&:last-child {
+			margin-right: 0;
+		};
+	}
+}

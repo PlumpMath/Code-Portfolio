@@ -1,0 +1,45 @@
+@include section( '.pane-front-page-ronald-bio', 'dark' );
+@include section( '.pane-blog-view-blog-front-page', 'light' );
+@include section( '#front-page-contact-form', 'dark' );
+
+@include summary( '#atwp-factbox .field-name-body', 648px );
+@include summary( '#front-page-contact-form .field-name-body', auto );
+
+.pane-front-page-ronald-bio {
+	#mini-panel-front_page_ronald_bio {
+		padding-top: 29px;
+	}
+
+	.field-name-field-author-pic {
+		display: inline-block;
+		float: right;
+		padding-left: 16px;
+	}
+
+	#ron-mueller-name, 
+	#ron-mueller-role,
+	.field-name-field-author-biography {
+		text-align: right;
+		margin-bottom: 10px;
+	}
+
+	#ron-mueller-name {
+		@include armata-font( 15px, $color-text-beige );
+	}
+
+	#ron-mueller-role {
+		@include overlock-font( 16px, $color-text-blue, true );
+	}
+
+	.field-name-field-author-biography {
+		@include overlock-font( 15px, $color-text-beige-black );
+
+		p {
+			margin-bottom: 10px;
+
+			&:last-child {
+				margin-bottom: 0;
+			};
+		}
+	}
+}

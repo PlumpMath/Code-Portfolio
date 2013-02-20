@@ -1,6 +1,6 @@
 /* 
- * @author : Kurt Mueller
- * Date Created: 2011/10/01
+ * @author      : Kurt Mueller
+ * Date Created : 2011/10/01
  *
  * Program Description:
  * This was a class project where I created & implemented a double linked list data

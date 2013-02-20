@@ -1,0 +1,28 @@
+
+#atwp-factbox {
+	/* Factbox's text header */
+	& > h2 {
+		font: {
+			family: "Oswald";
+			size: 28px;
+		};
+
+		text: {
+			align: center;
+			transform: uppercase;
+		};
+
+		color: $color-text-blue;
+		margin-bottom: 17px;
+	}
+
+	.content {
+		position: relative;
+	}
+
+	/* factbox's image */
+	.field-name-field-factbox-image {
+		display: table;
+		margin: 0 auto;
+	}
+}

@@ -1,0 +1,67 @@
+@include nav-text( '#header-wrapper input#edit-submit' );
+
+
+/*--------------- Search Form ---------------*/
+#block-search-form {
+	float: right;
+
+	/* search form */
+	form#search-block-form {
+		float: left;
+
+		/* form's title */
+		& > div > h2 {
+			display: none;
+		}
+
+		/* contains the only form item for this block: the search label and its input */
+		.form-item {
+			float: left;
+
+			label {
+				@include section-label;
+				float: left;
+				line-height: 19px;
+
+				padding: 10px 11px 7px 6px;
+				margin-right: 4px;
+
+				border: 1px solid #5A5948;
+				border-top: none;
+			}
+
+			input {
+				float: left;
+				background-color: #1F1F17;
+				border: 2px solid #171711;
+
+				margin-top: 5px;
+				margin-right: 4px;
+				padding: 0;
+
+				width: 195px;
+				height: 24px;
+			}
+		}
+
+		.form-actions {
+			display: inline-block;
+			float: left;
+
+			input {
+				width: 30px;
+				height: 37px;
+				margin: 0;
+				margin-right: 2px;
+
+				background-color: #313125;
+
+				border: none;
+				border: 1px solid #5A5948;
+				border-top: none;
+
+				cursor: pointer;
+			}
+		}
+	}
+}

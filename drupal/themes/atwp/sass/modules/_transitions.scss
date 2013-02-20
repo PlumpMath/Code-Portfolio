@@ -1,0 +1,14 @@
+$default-transition-duration: 0.25s;
+$default-transition-function: 'ease-in';
+$default-transition-property: 'color';
+
+@mixin transitions( $duration: $default-transition-duration, 
+					$function: $default-transition-function ) {
+	@include transition-duration( $duration );
+	@include transition-timing-function( $function );
+}
+
+@mixin transition( $property: $default-transition-property ) {
+	@include transitions;
+	@include transition-property( $property );
+}

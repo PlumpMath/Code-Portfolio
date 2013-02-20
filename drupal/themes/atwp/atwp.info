@@ -1,0 +1,48 @@
+name = ATWP Custom Theme
+description = A custom theme for Around-the-World Publishing website.
+package = Core
+version = VERSION
+core = 7.x
+base theme = bartik
+
+stylesheets[all][] = css/atwp.css
+
+; KILL THESE DEFAULT STYLESHEETS:
+stylesheets[all][] = ctools.css
+stylesheets[all][] = field.css
+stylesheets[all][] = node.css
+stylesheets[all][] = search.css
+stylesheets[all][] = system.base.css
+stylesheets[all][] = system.theme.css
+stylesheets[all][] = system.menus.css
+stylesheets[all][] = system.messages.css
+stylesheets[all][] = style.css
+stylesheets[all][] = user.css
+stylesheets[all][] = views.css
+stylesheets[all][] = layout.css
+
+; KILL BARTIK THEMES
+stylesheets[all][] = colors.css
+
+; Plugins
+plugins[panels][layouts] = layouts
+
+regions[header] = Header
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[highlighted] = Highlighted
+
+regions[featured] = Featured
+regions[content] = Content
+regions[sidebar_first] = Sidebar first
+regions[sidebar_second] = Sidebar second
+
+regions[triptych_first] = Triptych first
+regions[triptych_middle] = Triptych middle
+regions[triptych_last] = Triptych last
+
+regions[footer_firstcolumn] = Footer first column
+regions[footer_secondcolumn] = Footer second column
+regions[footer_thirdcolumn] = Footer third column
+regions[footer] = Footer

@@ -1,0 +1,13 @@
+#logo-wrapper {
+	@include grid( 4 );
+	@include alpha;
+	position: relative; 
+
+	/* the site's logo */
+	#logo {
+		display: table;
+		position: relative;
+		margin: 65px auto 0;
+		z-index: 100;
+	}	
+}

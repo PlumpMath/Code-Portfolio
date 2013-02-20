@@ -1,0 +1,54 @@
+@include form( '#webform-client-form-8', '.form-wrapper', 'dark' );
+
+.webform-component {
+	width: auto;
+}
+
+#webform-client-form-8 {
+	position: relative;
+	display: inline-block;
+
+	& > div {
+		position: relative;
+		display: inline-block;
+	}
+
+	.form-text { 
+		width: 300px;
+	}
+
+	textarea { 
+		width: 100%;
+	}
+
+	#webform-component-email--atwp-email-value a {
+		@include overlock-font;
+		text-decoration: none;
+		font-style: italic;
+	}
+
+	#edit-actions {
+		@include grid-prefix( 6 );
+		@include alpha;
+		@include omega;
+
+		display: inline;
+
+		input.form-submit {
+			position: absolute;
+			right: 0;
+			bottom: -35px ;
+
+			background: none;
+			border: none;
+			padding: 0;
+			margin: 0;
+
+			@include armata-font;
+
+			&:hover {
+				text-decoration: underline;
+			};
+		}
+	}
+}

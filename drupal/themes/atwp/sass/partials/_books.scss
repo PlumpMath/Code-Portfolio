@@ -1,0 +1,124 @@
+//--- Border Corners Icons ---//
+@include border-corner( '.book-gallery', top, left );
+@include border-corner( '.book-gallery', top, right );
+@include border-corner( '.book-gallery', bottom, left );
+@include border-corner( '.book-gallery', bottom, right );
+
+@include book-gallery( '#genre-panes' );
+@include book-gallery( '#related-books-gallery' );
+@include book( '.genre-view .individual-book', 'gallery' );
+@include book( '.related-books-view .individual-book', 'gallery' );
+@include book( '.views_slideshow_main', 'front' );
+
+
+@include book( '#viewed-book .individual-book', 'page' );
+
+#viewed-book {
+	@include grid-container;
+	margin-top: 80px;
+
+	.individual-book {
+		display: inline-block;
+		.book-cover {
+			@include grid( 5 );
+			@include alpha;
+		}
+		.book-info {
+			@include grid( 7 );
+			@include omega;
+		}
+	}
+}
+
+/*---------- Front Page Book Gallery ----------*/
+.book-gallery {
+	position: relative;
+	margin: 5px;
+
+	.pane-content {
+		padding: 71px 0;
+	}
+}
+
+@include border-book-gallery( '.book-gallery' );
+
+.view-books-view {
+	/*---------- Pager ----------*/
+	.views-slideshow-controls-top {
+		@include grid( 1 );
+		@include alpha;
+
+		$pagerHeight: 89px * 4;
+		$pagerDifference: (433px-$pagerHeight) - 13px;
+		$pagerPadding: $pagerDifference / 8;
+
+		.views-slideshow-pager-field-item {
+			padding: $pagerPadding 0;
+			
+			&.active {
+				border: {
+					top: 1px solid $color-border-header;	
+					bottom: 1px solid $color-border-header;	
+				};
+			}
+			
+			img {
+				cursor: pointer;
+				margin: 0 auto;
+			}
+		}
+	} // end Pager
+
+	/*---------- Slideshow ----------*/
+	.views_slideshow_cycle_main {
+		display: inline-block;
+		width: 940px;
+
+		.main-book-cover {
+			@include grid( 4 );
+
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+		}
+
+		// book information
+		.book-info {
+			@include grid( 7 );
+			@include omega;
+
+			display: inline-block;
+			position: relative;
+			float: left;
+			
+			clear: none;
+
+			// author
+			.username {
+				display: inline-block;
+				float: left;
+
+				margin: 12px 0;
+			}
+
+			// the read more link
+			span.read-more {
+				width: 100%;
+				display: inline-block;
+				position: relative;
+
+				a {
+					display: inline-block;
+					float: right;
+					text-decoration: none;
+					@include armata-font;
+
+					&:hover {
+						text-decoration: underline;
+					};
+				}
+			}
+		}		
+	}
+}

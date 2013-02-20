@@ -1,0 +1,61 @@
+@include nav-text( '.menu-block-wrapper ul li a', 11px );
+
+/* contains secondary menu and search box */
+.region-header {
+	margin: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	height: 39px;
+	width: auto;
+
+	background-color: $color-bg-header;
+	
+	border-top: 0;
+
+	.block-menu-block, 
+	.block-search {
+		display: inline-block;
+		float: left;
+	}
+
+	/*--------------- Secondary Menu ---------------*/
+	.block-menu-block {
+		padding: 11px 15px 7px 9px;
+		border: 1px solid #5A5948;
+		border-top: none;
+
+		margin: {
+			left: 2px;
+			right: 2px;
+		};
+
+		& > h2 {
+			float: left;
+			@include section-label;
+		}
+
+		.menu-block-wrapper {
+			float: left;
+			margin: 3px 0 0 15px;
+
+			ul {
+				float: left;
+
+				li {
+					float: left;
+					margin: 0 7px;
+
+					&:first-child {
+						margin-left: 0;
+					};
+
+					&:last-child {
+						margin-right: 0;
+					};
+				}
+			}
+		}
+	} /* .block-menu-block */
+} /* /.region-header */

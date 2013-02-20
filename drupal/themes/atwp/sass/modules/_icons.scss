@@ -1,0 +1,64 @@
+/*************
+ * VARIABLES *
+ *************/
+
+$icons-layout: smart;
+@import "icons/*.png";
+
+// the default length of the border icon
+$default-border-length: 40px;
+
+
+
+/**********
+ * MIXINS *
+ **********/
+
+/*
+ * This is the main border corner icon mixin for all elements. This mixin is used
+ * typically for the blue border corners.
+ */
+@mixin border-corners( $length: $default-border-length ) {
+	position: absolute;
+	height: $length;
+	width: $length;
+
+	text-indent: -9999px;
+}
+
+/*
+ * This mixin is for individual border corners, specifically the blue border corners
+ * that can be found on the front page book gallery. 
+ * 
+ * @param $parent-element The parent element of the border corner. This is some sort
+ * 						  of wrapper element.
+ * @param $pos-y The y-position of the border corner icon ( i.e. 'top' or 'bottom' )
+ * @param $pos-x The x-position of the border corner icon ( i.e. 'left' or 'right' )
+ */
+@mixin border-corner( $parent-element, $pos-y, $pos-x ) {
+
+	// this is the icon name that will be imported
+	$icon-name: unquote('border-');
+
+	// the css selector
+	// e.g '.book-gallery .topleft'
+	#{ $parent-element } .#{ $pos-y }#{ $pos-x } {
+
+		@include border-corners;
+
+		// set the icon's position
+		#{ $pos-y }: -2px;
+		#{ $pos-x }: -2px;
+
+		// determine the y position of the border corner icon
+		@if( $pos-y == top ) { $icon-name: $icon-name#{top};    }
+		@else 				 { $icon-name: $icon-name#{bottom}; }
+
+		// the x position of hte border corner icon
+		@if( $pos-x == left ) { $icon-name: $icon-name#{left};  }
+		@else 				  { $icon-name: $icon-name#{right}; }
+
+		// include the icon
+		@include icons-sprite( $icon-name );
+	}
+}

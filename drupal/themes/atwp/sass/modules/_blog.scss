@@ -1,0 +1,142 @@
+// mixin: post-title
+// description: This mixin applies styles to the title of the blog post.
+// @param elements This mixin will apply to each html element in this lsit.
+// @param featured Specifies if the css rules are being applied to the most recent/featured blog post.
+@mixin post-title( $elements, $featured: false ) {
+	@each $element in $elements {
+		#{$element} {
+			& > a:first-child {
+				display: block;
+				width: 100%;
+				text: {
+					decoration: none;
+					transform: uppercase;
+					align: center;
+				};
+
+				// the featured/most recent blog post has bigger font sizes
+				// and is a bit more colorful
+				@if( $featured == true ) {
+					@include oswald-font( 32px, $color-text-blue );
+					margin-bottom: 17px;
+				}
+				// for every other blog post after the mot recent post
+				@else {
+					@include oswald-font;
+					margin-bottom: 12px;
+				}
+			}
+		}
+	}
+}
+
+// mixin: post-meta
+// description: This mixin applies to the meta information (i.e. the date the post written and by whom) of each blog post.
+@mixin post-meta( $elements, $featured: false ) {
+	@each $element in $elements {
+		#{$element} {
+			& > .post-meta {
+				// the most recent blog post
+				@if( $featured == true ) {
+					@include overlock-font( 16px, $color-text-grey-light, true );
+					margin-bottom: 17px;
+				}
+				@else {
+					@include overlock-font( $overlock-font-size, $color-text-grey-light, true );
+					margin-bottom: 12px;
+				}
+
+				text-align: center;
+				
+				display: block;
+				width: 100%;
+
+				// style rules for the post's author link
+				& > .post-author a {
+					color: $color-text-blue;
+					font-weight: bold;
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					};
+				}
+			}
+		}
+	}
+}
+
+// mixin: post-body
+// description: This mixin applies to the text body of the blog post.
+@mixin post-body( $elements, $featured: false ) {
+	@each $element in $elements {
+		#{$element} {
+			& > p {
+				margin-bottom: 10px;
+
+				@if( $featured == true ) {
+					font-size: 15px;
+					line-height: 18px;
+				}
+				@else {
+					font-size: 14px;
+					line-height: 17px;
+				}
+			}
+		}
+	}
+}
+
+// mixin: post-link
+// description: This mixin applies to the "Read More" found in blog post previews.
+@mixin post-link( $elements, $featured: false ) {
+	@each $element in $elements {
+		#{$element} {
+			& > .read-more {
+				display: block;
+				width: 100%;
+				text-align: center;
+
+				a {
+					text-decoration: none;
+
+					@if( $featured == true ) {
+						@include armata-font(15px);
+					}
+					@else {
+						@include armata-font(14px);
+					}
+				}
+			}
+		}
+	}
+}
+
+// mixin: post
+// description: This mixin is for the blog post itself. It applies a grid layout as well
+// as serves as a wrapper mixin.
+@mixin post( $elements, $featured: 'false' ) {
+	@each $element in $elements {
+		#{$element} {
+
+			@if( $featured == true ) {
+				@include grid(12);
+				padding-top: 0px;
+				padding-bottom: 30px;
+			}
+			@else {
+				@include grid(4);
+
+				padding: {
+					top: 30px;
+					bottom: 30px;
+				};
+			}
+		}
+	} // end @each $element
+
+	@include post-title( $elements, $featured );
+	@include post-meta( $elements, $featured );
+	@include post-body( $elements, $featured );
+	@include post-link( $elements, $featured );
+}

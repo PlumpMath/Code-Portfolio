@@ -1,0 +1,25 @@
+
+@mixin footer( $elements ) {
+	@each $element in $elements {
+		#{$element} {
+			background-color: $color-bg-black;
+
+			& > .section {
+				@include grid-container;
+			}
+		}
+	} // end @each $element in $elements
+} // end @mixin footer
+
+/*
+ * This mixin stylizes the footer menu.
+ */
+@mixin footer-menu( $elements ) {
+	@include menus( $elements, 0, none, 0 0 12px 0, none );
+
+	@each $element in $elements {
+		#{$element} {
+			text-align: center;
+		}
+	} // end @each $element in $elements
+} // end @mixin footer-menu

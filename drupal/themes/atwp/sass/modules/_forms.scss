@@ -1,0 +1,95 @@
+$form-header-text-color : #CED1BF;
+
+@mixin form-legend( $elements, $theme: 'light' ) {
+	@each $element in $elements {
+		#{$element} .fieldset-legend {
+			@if( $theme == 'light' ) {
+			}
+			@else {
+				@include armata-font( $armata-font-size, $form-header-text-color );
+			}
+		}
+	}
+}
+
+@mixin form-wrapper( $elements, $form-wrappers, $columns: 6 ) {
+	@each $element in $elements {
+		#{$element} {
+			@each $form-wrapper in $form-wrappers {
+				#{$form-wrapper} {
+					@include grid( $columns );
+				}
+			} // end @each $form-wrapper
+		}
+	}
+}
+
+@mixin form-field( $elements, $theme: 'light' ) {
+	@each $element in $elements {
+		#{$element} input:not( .form-submit ),
+		#{$element} textarea {
+			@if( $theme == 'light' ) {
+			}
+			@else {
+				background-color: $color-bg-beige; 
+				border: 2px solid $color-border-grey-light;
+				padding: 10px 5px;
+
+				@include overlock-font( 16px, $color-body-text, false );
+				
+				font: {
+					weight: bold;
+					style: italic;
+				}
+			}
+		}
+	}
+}
+
+@mixin form-description( $elements, $theme: 'light', $hideDescriptions: true ) {
+	@each $element in $elements {
+		#{$element} .description {
+			@if( $hideDescriptions == true ) {
+				display: none;
+			}
+			@else {
+			}
+		}
+	}
+}
+
+@mixin form-label( $elements, $theme: 'light', $hideLabels: true ) {
+	@each $element in $elements {
+		#{$element} label {
+			@if( $hideLabels == true ) {
+				display: none;
+			}
+			@else {
+			}
+		}
+	}
+}
+
+@mixin form-item( $elements, $theme: 'light' ) {
+	@each $element in $elements {
+		#{$element} .form-item {
+			margin-top: 15px;
+		}
+	}
+}
+
+
+@mixin form( $elements, $form-wrappers, $theme: 'light', $hideLabels: true, $hideDescriptions: true ) {
+	@each $element in $elements {
+		#{$element} {
+			padding-top: 20px;
+		}
+	}
+
+	@include form-wrapper( $elements, $form-wrappers );
+	@include form-field( $elements, $theme );
+	@include form-description( $elements, $theme, $hideDescriptions );
+	@include form-legend( $elements, $theme );
+	@include form-label( $elements, $theme, $hideLabels );
+	@include form-item( $elements, $theme );
+}

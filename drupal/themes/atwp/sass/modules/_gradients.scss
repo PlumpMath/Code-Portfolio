@@ -1,0 +1,19 @@
+// the radial gradient used in the header of every page
+@mixin header-gradient {
+	@include background(
+		radial-gradient(
+			50% 150%, 
+			$color-bg-grey 0px, 
+			$color-bg-black 700px ) );	
+}
+
+// the main gradient used for the body on each page
+// has a sandy-ish, light mocha cover
+@mixin body-gradient {
+	@include background-image( 
+		linear-gradient( 
+			left, 
+			$color-bg-beige-dark 0%, 
+			$color-bg-beige 50%, 
+			$color-bg-beige-dark 100% ) );
+}

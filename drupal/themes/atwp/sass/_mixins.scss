@@ -1,0 +1,10 @@
+// gray text that is used as a label for each section
+@mixin section-label( $fontsize: 16px, $color: #969A82 ) {
+	font: {
+		family: "Overlock";
+		size: 16px;
+		style: italic;
+	};
+
+	color: $color;
+}

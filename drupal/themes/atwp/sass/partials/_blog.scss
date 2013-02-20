@@ -1,0 +1,10 @@
+@include post( '.blog-post' );
+@include post( '.most-recent-list .blog-post', true);
+
+.most-recent-list, .blog-front-list {
+	display: inline-block;
+}
+
+.most-recent-list {
+	border-bottom: 1px solid #CAC7B6;
+}

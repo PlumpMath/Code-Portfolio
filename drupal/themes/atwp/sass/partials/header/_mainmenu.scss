@@ -1,0 +1,10 @@
+/*--------------- Main Menu ---------------*/
+nav#main-menu {
+
+	@include grid( 8 );
+	@include omega;
+
+	position: relative;
+	float: left;
+	height: 100%;
+}

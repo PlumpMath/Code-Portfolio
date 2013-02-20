@@ -1,0 +1,85 @@
+$default-nav-fontsize: 15px;
+$default-nav-effect: 'hover';
+$default-nav-fontfamily: 'Armata';
+
+/*
+ * This mixin specifies properties for navigation texts. Typically, these properties
+ * apply to list elements found in menus.
+ */
+@mixin nav-text( $elements, 
+		 $fontsize   : $default-nav-fontsize,  // font size
+		 $effectType : $default-nav-effect,    // effect type when the mouse hovers over the text element
+		 $family     : $default-nav-fontfamily // font family of the nav text
+	       ) {
+
+	@each $element in $elements {
+		#{$element} {
+			font: {
+				family : $family;
+				size   : $fontsize;	
+			};
+
+			text: {
+				decoration: none;
+				transform: uppercase;
+			};
+
+			color: $color-text-blue;
+
+			// determine the effect type and what 
+			// types of transition properties will be applied
+			@if ( $effectType == "hover" ) {
+				@include transition;
+
+				&:hover {
+					color: $color-text-hover;
+					@include transition;
+				};
+			} 
+			@else if ( $effectType == "underline" ) {
+				@include transition( all );
+
+				&:hover {
+					text-decoration: underline;
+					@include transition( all );
+				};
+			}
+
+			// the active menu choice
+			&.active {
+				color: $color-text-hover;
+			}
+		}
+	}
+}
+
+//--- Footer Caption Text ---//
+// This mixin stylize
+@mixin footer-caption( $elements, $line-height: 24px ) {
+	@each $element in $elements {
+		#{$element} {
+			@include overlock-font( $overlock-font-size, $color-text-beige-black, true );
+			line-height: $line-height;
+			text-align: center;
+		}
+	} // end @each $element
+} // end @mixin footer-caption
+
+
+//--- Section Summary ---//
+// This mixin is used for the description of each section. For example
+// the Contact section has a section summary that informs users interested
+// in the website that they should contact the publishers. This mixin applies
+// style to that text.
+@mixin summary( $elements, $width, $margin: '0 auto 22px' ) {
+	@each $element in $elements {
+		#{$element} {
+			width: $width;
+			margin: unquote($margin);
+
+			@include crimson-font;
+			text-align: center;
+			line-height: 32px;
+		}
+	}
+}

@@ -1,0 +1,41 @@
+/*---------- HEADER ----------*/
+
+/* 
+ * Mixins
+ */
+
+// apply the secondary menu border properties to the following elements
+$secondary-menus: (
+	'.region-header',
+	'.header-top'
+);
+
+@include border( $secondary-menus, 2px, solid, $color-border-header );
+
+// nav menu
+@include menus( 'nav#main-menu ul', 110px 0 0 0, right );
+@include nav-text( 'nav#main-menu ul li a' );
+
+
+/* 
+ * Partials
+ */
+
+// this wrapper contains all header elements, including:
+// - the top border
+// - the main menu
+// - the secondary menu
+#header-wrapper {
+	background-color: $color-bg-black;
+	height: 146px;
+	border-bottom: 4px double $color-border-header;
+
+	@include header-gradient;
+	z-index: 100;
+}
+
+header {
+	background: none;
+	position: relative;
+	height: 146px;
+}

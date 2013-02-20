@@ -1,0 +1,64 @@
+$armata-font-family : 'Armata',Helvetica,sans-serif;
+$armata-font-color  : $color-text-blue;
+$armata-font-size   : 15px;
+
+$overlock-font-family : 'Overlock',Arial,sans-serif;
+$overlock-font-color  : $color-text-blue;
+$overlock-font-size   : 15px;
+$overlock-italic      : false;
+
+$oswald-font-family : 'Oswald',Times New Roman, serif;
+$oswald-font-color  : $color-text-grey;
+$oswald-font-size   : 24px;
+
+$crimson-font-family : 'Crimson Text',Garamond,serif;
+$crimson-font-color  : $color-text-beige-black;
+$crimson-font-size   : 24px;
+
+$impact-font-family : "Impact-MT-Shadow";
+$impact-font-color  : $color-body-text; 
+$impact-font-size   : 50px;
+
+@mixin fonts( $font-family, $font-size, $font-color ) {
+	font: {
+		family: $font-family;
+		size: $font-size;
+	};
+	color: $font-color;
+}
+
+@mixin armata-font( $font-size  : $armata-font-size, 
+		    $font-color : $armata-font-color ) {
+	@include fonts( $armata-font-family, $font-size, $font-color );
+	text-transform: uppercase;
+}
+
+@mixin impact-font( $font-size  : $impact-font-size, 
+		    $font-color : $impact-font-color ) {
+	@include fonts( $impact-font-family, $font-size, $font-color );
+	text-transform: uppercase;
+}
+
+@mixin overlock-font( $font-size  : $overlock-font-size, 
+		      $font-color : $overlock-font-color,
+		      $italic     : $overlock-italic ) {
+
+	@include fonts( $overlock-font-family, $font-size, $font-color );
+
+	@if( $italic == true ) {
+		font-style: italic;
+	}
+}
+
+@mixin oswald-font( $font-size  : $oswald-font-size, 
+		    $font-color : $oswald-font-color ) {
+	
+	@include fonts( $oswald-font-family, $font-size, $font-color );
+}
+
+@mixin crimson-font( $font-size  : $crimson-font-size, 
+		     $font-color : $crimson-font-color ) {
+	
+	@include fonts( $crimson-font-family, $font-size, $font-color ); 
+	font-weight: 400;
+}

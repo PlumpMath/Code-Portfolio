@@ -1,0 +1,18 @@
+$ninesixty-grid-width: 1024px;
+$ninesixty-gutter-width: 16px;
+
+header, 
+#page-title, 
+#breadcrumb, 
+.tabs {
+	/* grid container */
+	@include grid-container;
+}
+
+
+.book-gallery > .pane-content,
+.pane-front-page-ronald-bio,
+.pane-blog-view-blog-front-page,
+#front-page-contact-form {
+	@include grid-container;
+}

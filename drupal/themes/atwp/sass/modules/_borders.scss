@@ -1,0 +1,45 @@
+$default-border-width: 2px;
+$default-border-style: solid;
+
+// Name: Border
+// Description: This mixin is used for borders of various html elements. It's primary
+// purpose is for use by other 'wrapper' mixins that direct to here.
+//
+// @param elements The html elements in which to apply borders.
+// @param width The border's width.
+// @param style The border's style (i.e. solid, dashed, dotted, etc.)
+// @param color The border's color.
+// @param positions The different positions (i.e. top, left, right, bottom) to apply the border to.
+@mixin border( $elements, $width, $style, $color, $positions: ('all') ) {
+	@each $element in $elements {
+		@each $position in $positions {
+			@if $position != 'all' {
+				#{$element} {
+					border-#{$position}: $width $style $color;	
+				}
+			}
+			@else {
+				#{$element} {
+					border: $width $style $color;	
+				}
+			}
+		} // end @each $position in $positions
+	} // end @each $element in $elements
+}
+
+@mixin border-book-gallery( $elements ) {
+	@include border( $elements, 2px, solid, $color-text-blue );
+}
+
+/* 
+ * mixin: border-header-region
+ * desc : This mixin is the borders of regions found in the header section
+ *        (i.e. the search box and secondary menu)
+ */
+@mixin border-header-region( $element ) {
+	@include border( $element, 2px, solid, $color-border-header );	
+}
+
+@mixin border-section-title( $element, $color : $color-section-title ) {
+	@include border( $element, 2px, solid, $color-section-title );
+}

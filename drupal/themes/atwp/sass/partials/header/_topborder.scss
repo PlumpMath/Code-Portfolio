@@ -1,0 +1,15 @@
+.header-top {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 6px;
+	
+	text-indent: -9999px;
+	background-color: $color-bg-header;
+
+	border: {
+		top   : none;
+		left  : none;
+		right : none;
+	};
+}

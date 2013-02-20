@@ -1,0 +1,386 @@
+//--- Book Cover Image ---//
+// The book cover of each book.
+@mixin book-cover( $elements, $location ) {
+	@each $element in $elements {
+		#{$element} {
+			display: inline-block;
+			float: left;
+
+			a {
+				display: inline-block;
+			}
+
+			// book cover on the front page
+			@if( $location == 'front' ) {
+			}
+			// book cover on an individual book page
+			@elseif( $location == 'page' ) {
+			}
+			// book cover in a gallery
+			@elseif( $location == 'gallery' ) {
+				margin-right: 15px;
+			}
+			// book cover is in the slideshow pager
+			@else {
+			}
+		} //--- end #{$element}
+	} //--- end @each $element in $elements
+}
+
+
+//--- Books' Title ---//
+// This mixin is used to stylize the title of each book. There are 3 possible
+// locations in the website where books can be found: the front page slideshow,
+// the individual books page, and the related books gallery. 
+// 
+// $elements HTML elements that are used for book titles. Should be a container that contain an a tag.
+// $location The location of the book title (front page slideshow, individual book page, related books gallery ).
+@mixin book-title( $elements, $location ) {
+	@each $element in $elements {
+		#{$element} {
+			display: inline-block;
+			width: 100%;
+
+			// individual book page
+			@if( $location == 'page' ) {
+				@include oswald-font( 32px, $color-text-blue );
+				text: {
+					decoration: none;
+					transform: uppercase;
+				};
+			}
+
+			a {
+				&:first-child {
+					display: none;
+				};
+
+				&:last-child {
+					display: inline-block;
+					width: 100%;
+
+					text: {
+						decoration: none;
+						transform: uppercase;
+					};
+
+					&:hover {
+						text-decoration: underline;
+					};
+
+					// featured book on the front page 
+					@if( $location == 'front' ) {
+						@include oswald-font( 32px, $color-text-blue );
+					}
+					// individual book page
+					@elseif( $location == 'page' ) {
+						@include oswald-font( 32px, $color-text-blue );
+					}
+					// book shown in the gallery
+					@else {
+						@include armata-font;
+						margin-bottom: 8px;
+					}
+				}
+			}
+		} //--- END #{$element}
+	} //--- END @each $element in $elements
+}
+
+@mixin book-author( $elements, $location ) {
+	@each $element in $elements {
+		#{$element} {
+			@if( $location == 'front' ) {
+				@include overlock-font( 16px, $color-body-text, true );
+			}
+			@elseif( $location == 'page' ) {
+				@include overlock-font( 16px, $color-body-text, true );
+				display: inline-block;
+				float: left;
+				margin-top: 12px;
+			}
+			@else {
+				@include overlock-font( 14px, $color-body-text, true );
+			}
+
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			};
+		}
+	}
+}
+
+//--- Bookstore Links (BN, Amazon, Smashwords, etc) ---//
+// These are the styles for bookstore links of each book. These are simply just a list of
+// links that lead to the relevant store page.
+//
+// $elements The html elements to apply the style to.
+// $location Location of the book (front page slideshow, individual book page, book gallery)
+@mixin bookstore-links( $elements, $location ) {
+	@each $element in $elements {
+		#{$element} {
+			display: inline-block;
+			width: auto;
+
+			.item-list, 
+			ul, 
+			.field-items {
+				display: inline-block;
+			}
+
+			ul, 
+			.field-items {
+				position: relative;
+				float: left;
+
+				li, 
+				.field-item {
+					float: left;
+					border-right: 1px solid $color-border-store-links;
+
+					&:first-child {
+						margin-left: 0;
+					};
+
+					&:last-child {
+						margin-right: 0;
+						border: none;
+					};
+				}
+			}
+
+			// the style rules that apply to books being displayed on the front page slideshow
+			@if( $location == 'front' ) {
+				ul,
+				.field-items {
+					margin: 12px 25px;
+					margin-right: 0;
+
+					li,
+					.field-item {
+						padding: 0 7px;
+					}
+				}
+			}
+			// the style rules that apply to individual book page
+			@elseif( $location == 'page' ) {
+				ul, 
+				.field-items {
+					margin: 12px 25px;
+					margin-right: 0;
+
+					li, 
+					.field-item {
+						padding: 0 7px;
+
+					}
+				}
+			}
+			// book is located in a book gallery
+			@else {
+				ul {
+					margin: 8px 0;
+
+					li {
+						padding: 0 10px;
+
+						&:first-child {
+							padding-left: 0;
+						}
+					}
+				}
+			}
+		} //--- END #{$element} 
+	} //--- END @each $element in $elements
+}
+
+@mixin bookstore-link( $elements, $location ) {
+	@each $element in $elements {
+		// $element must be an <a> tag
+		#{$element} {
+			font: {
+				style: italic;
+			};
+
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			};
+
+			@if( $location == 'front' ) {
+				@include overlock-font( 16px, $color-border-store-links, false );
+			}
+			@elseif( $location == 'page ' ) {
+				@include overlock-font( 16px, $color-border-store-links, false );
+			}
+			@else {
+				@include overlock-font( 14px, $color-border-store-links, false );
+			}
+		}
+	}
+}
+
+@mixin book-info( $elements, $location ) {
+	@each $element in $elements {
+		#{$element} {
+			@if( $location == 'front' ) {
+			}
+			@elseif( $location == 'page' ) {
+				display: inline-block;
+				float: left;
+			}
+			@else {
+				display: inline-block;
+				float: left;
+				width: 295px;
+			}
+		} // end #{$element}
+	} // end @each $element in $elements
+}
+
+@mixin book-preview( $elements, $location ) {
+	@each $element in $elements {
+		#{$element} {
+			p {
+				display: inline-block;
+				position: relative;
+
+				// book's location is on the front page
+				@if( $location == 'front' ) {
+					line-height: 18px;
+					margin-bottom: 12px;
+
+					&:last-of-type { 
+						margin-bottom: 30px;
+					};
+				}
+				// book's location being featured
+				@elseif( $location == 'page' ) {
+					line-height: 18px;
+					margin-bottom: 12px;
+
+					&:last-of-type { 
+						margin-bottom: 30px;
+					};
+				}
+				// book's location is in the gallery
+				@else {
+					margin-bottom: 8px;
+					line-height: 18px;
+
+					&:last-of-type {
+						margin-bottom: 0;
+					};
+				}
+			}
+		}
+	}
+}
+
+@mixin book( $elements, 
+	     $location, 
+	     $cover-selectors: '.book-cover', 
+	     $info-selectors: '.book-info',
+	     $title-selectors: '.book-title', 
+	     $links-selectors: '.bookstore-links',
+	     $link-selectors: '.bookstore-link',
+	     $author-selectors: '.username',
+	     $preview-selectors: '.book-preview' ) {
+	@each $element in $elements {
+		#{$element} {
+			@if( $location == 'front' ) {
+			}
+			@elseif( $location == 'page' ) {
+			}
+			@else {
+				@include grid( 6 );
+				margin-top: 35px;
+
+				&:nth-child(1) {
+					@include alpha;
+				};
+
+				&:nth-child(2n) {
+					@include omega;
+				};
+
+				&:nth-child(2n+1) {
+					@include alpha;
+					clear: left;
+				};
+			}
+		} // end #{$element}
+
+		// create book cover selectors & then call the book cover mixin
+		@each $cover-selector in $cover-selectors {
+			$cover-selector: unquote($element) + ' ' + unquote($cover-selector);
+			@include book-cover( $cover-selector, $location );
+		}
+
+		// book info selectors & book info mixin 
+		@each $info-selector in $info-selectors {
+			$info-selector: unquote($element) + ' ' + unquote($info-selector);
+			@include book-info( $info-selector, $location );
+		}
+
+		// book title selectors & book title mixin
+		@each $title-selector in $title-selectors {
+			$title-selector: unquote($element) + ' ' + unquote($title-selector);
+			@include book-title( $title-selector, $location );
+		}
+
+		// author selectors & author mixin
+		@each $author-selector in $author-selectors {
+			$author-selector: unquote($element) + ' ' + unquote($author-selector);
+			@include book-author( $author-selector, $location );
+		}
+
+		// bookstore link selectors & bookstore links mixin
+		@each $links-selector in $links-selectors {
+			$links-selector: unquote($element) + ' ' + unquote($links-selector);
+			@include bookstore-links( $links-selector, $location );
+		}
+
+		// individual bookstore link selectors & bookstore link mixin
+		@each $link-selector in $link-selectors {
+			$link-selector: unquote($element) + ' ' + unquote($link-selector);
+			@include bookstore-link( $link-selector, $location );
+		}
+
+		// book preview selectors & book preview mixin 
+		@each $preview-selector in $preview-selectors {
+			$preview-selector: unquote($element) + ' ' + unquote($preview-selector);
+			@include book-preview( $preview-selector, $location );
+		}
+	} // end @each $element in $elements
+}
+
+@mixin book-gallery( $elements, $type: 'genre' ) {
+	@each $element in $elements {
+		#{$element} {
+			@include grid-container;
+			margin-top: 70px;
+
+			h2 {
+				@include impact-font;
+				@include grid(12);
+				@include alpha;
+				@include omega;
+				display: inline-block;
+				text-align: right;
+				padding-bottom: 10px;
+				border-bottom: 2px solid $color-border-grey-light;
+			}
+
+			.pane-content, 
+			.view, 
+			.view-content {
+				display: inline-block;
+			}
+		}
+	}
+}
+

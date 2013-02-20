@@ -1,0 +1,75 @@
+// stylize footer
+@include footer( "footer" );
+footer {
+	margin-top: 45px;
+	margin-bottom: -100px;
+}
+
+// hide footer menu titles
+.region-footer-firstcolumn .block-menu > h2,
+.region-footer-thirdcolumn .block > h2 {
+	display: none;
+}
+
+// add grids to each of the footer columns
+.region-footer-firstcolumn, 
+.region-footer-secondcolumn, 
+.region-footer-thirdcolumn {
+	padding: 25px 0 25px;
+	@include grid( 4 );	
+}
+
+// stylize the main menu in the first footer column
+@include footer-menu( ".region-footer-firstcolumn .block-menu" );
+@include nav-text( ".region-footer-firstcolumn .block-menu li a", 13px );
+
+// stylize the secondary menu in the second footer column
+@include footer-menu( ".region-footer-secondcolumn .block-menu" );
+
+// stylize the footer captions in the second and third columns
+@include footer-caption( (
+	".region-footer-secondcolumn .block-menu > h2",
+	".region-footer-thirdcolumn .block > p"
+	) );
+
+// stylize the secondary menu in the footer's second column
+.region-footer-secondcolumn .block-menu {
+
+	ul.menu {
+
+		li {
+			&:first-child {
+				margin-top: 12px;
+			};
+
+		 	a {
+				@include overlock-font;
+				font-style: italic;
+
+				text: {
+					decoration: none;
+				};
+
+				&:hover {
+					color: $color-text-hover;
+					@include transition;
+				};
+			}
+		}
+	}
+}
+
+// stylize the contact us link in the third footer column
+.region-footer-thirdcolumn .block a {
+		@include overlock-font;
+		font-style: italic;
+
+		text: {
+			decoration: none;
+		};
+
+		&:hover {
+			color: $color-text-hover;
+			@include transition;
+		};
+}

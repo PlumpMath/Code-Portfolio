@@ -1,0 +1,71 @@
+$section-title-fontsize: 28px;
+
+// Name: Section-Title-Border
+// Description: This mixin is mainly used on the front page for each section (About, Blog, Contact) and is
+// used for the borders that surround the title of the section.
+//
+// @param elements The html elements in which to apply the mixin.
+// @param theme Either light or dark. If the section's background is light, the border will be dark. If the section's
+// background is dark, the border will be light.
+@mixin section-title-border( $elements, $theme: 'light' ) {
+
+	// if the section's background is light
+	@if $theme == 'light' {
+		@include border( $elements, 1px, solid, $color-border-grey-light, 'top' );
+	}
+	// if the section's background is dark
+	@else {
+		@include border( $elements, 1px, solid, $color-section-title, 'top' );
+	}
+}
+
+// mixin: section-title
+// description: This mixin applies to the actual title of each section, applying the overlock font and specified font size.
+// The color changes based on if that section's theme is light or dark.
+//
+// @param elements The html elements that will have this mixin applied.
+// @param theme The section's theme (light or dark). 
+@mixin section-title( $elements, $theme: 'light' ) {
+	@each $element in $elements {
+		#{$element} > h2.pane-title {
+			display: table;
+			width: auto;
+
+			padding: 0 18px;
+			padding-bottom: 30px;
+
+			margin: 0 auto;
+			margin-top: -1 * ( $section-title-fontsize / 2 );
+
+			@if( $theme == 'light' ) {
+				@include overlock-font( $section-title-fontsize, $color-body-text, false );
+				background-color: $color-bg-beige;
+			}
+			@else {
+				@include overlock-font( $section-title-fontsize, $color-text-beige, false );
+				background-color: $color-bg-black;
+			}
+		}
+	}
+}
+
+// mixin: section
+// description: This mixin is mainly a wrapper mixin for section-title and section-title-border. However,
+// it does apply margins and padding to html elements passed in to it.
+//
+// @param elements The html elements to apply this mixin to.
+// @param theme Either light or dark.
+@mixin section( $elements, $theme: 'light' ) {
+	@each $element in $elements {
+		#{$element} {
+			display: block;
+			margin: {
+				top: 69px;
+			};
+			padding-bottom: 30px;
+		}
+	}
+
+	@include section-title-border( $elements, $theme );
+	@include section-title( $elements, $theme );
+}
