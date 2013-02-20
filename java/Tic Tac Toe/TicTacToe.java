@@ -1,19 +1,15 @@
-/* Homework:       12
- * Chapter:        17
- * Project:         2
- * Page:         1010
- * Filename:     TicTacToe.java
- * @author:      Kurt Mueller
- * Date:         05/11/2011
- * 
- * Problem Statement: This is a Swing GUI for a two-player 3x3 
- * tic-tac-toe game. It follows the specification as provided in the
- * book to create a gameboard with a 3x3 grid of buttons to keep 
- * track of who moved where and a label at the top of the program 
- * to keep track of whose turn it is and well as the outcome of the
- * game. 
+/* 
+ * Filename     : TicTacToe.java
+ * @author      : Kurt Mueller
+ * Date Created : 2011/05/11
  *
- * Overall Plan
+ * Program Description: 
+ * This tic-tac-toe game was my final project for my intermediate Java
+ * course. It utilizes a Swing GUI for the two-player 3x3 tic-tac-toe game. 
+ * It creates a gameboard with a 3x3 grid of buttons and a label at the top of 
+ * game board to inform the players whose turns it is and the outcome of the game.
+ *
+ * Program Algorithm:
  * A. Create & initialize the main window.
  *    1. Set the title.
  *    2. Set the window size.
@@ -102,16 +98,22 @@ public class TicTacToe extends JFrame
         frame.setSize(300, 300);
         frame.setVisible(true);
     }
+
+    // displays the current turn as well as the outcome of the
+    // game (who won or if the game was a draw)
+    JLabel whoseTurn; 
     
-    JLabel whoseTurn; // displays the current turn as well as the
-                      // outcome of the game (who won or if the game
-                      // was a draw)
+    // panel that will hold the game board
+    JPanel gameBoard; 
+
+    // array of JButtons that will be game board
+    JButton[][] pieces;
     
-    JPanel gameBoard; // panel that will hold the game board
-    JButton[][] pieces; // array of JButtons that will be game board
-    
-    boolean xTurn = true; // keeps track of whose turn it is
-    int moves = 0; // keeps track of the number of moves so far
+    // keeps track of whose turn it is
+    boolean xTurn = true;
+
+    // keeps track of the number of moves so far
+    int moves = 0;
     
     public TicTacToe() 
     {
@@ -167,16 +169,17 @@ public class TicTacToe extends JFrame
          */
         public void actionPerformed(ActionEvent arg0)
         {
-            if(xTurn == true) // X's Turn
+            // X's Turn
+            // set clicked button to X
+            // change the player's turn
+            if(xTurn == true) 
             {
-                // set label of appropriate button to 'X'
-                // set the JLabel to O's Turn
-                // set the x's turn to false
                 pieces[x][y].setText("X"); 
                 whoseTurn.setText("O's Turn");
                 xTurn = false;
             }
-            else // O's Turn
+            // O's Turn
+            else 
             {
                 pieces[x][y].setText("O");
                 whoseTurn.setText("X's Turn");
@@ -186,8 +189,11 @@ public class TicTacToe extends JFrame
             // when the button is clicked, disable it so it can't be
             // clicked again
             pieces[x][y].setEnabled(false);
-            moves++; // increase the moves count every time a button
-                     // is pressed
+
+            // increase the moves count every time a button
+            // is pressed
+            moves++; 
+                     
             
             // only after five moves can there be a winner
             if(moves >= 5 && moves <= 8) 
@@ -195,10 +201,10 @@ public class TicTacToe extends JFrame
                 // check to see if there's a winner
                 checkWinner();
             }
+            // all the buttons have been pressed & there is no
+            // determined winner
             else if(moves == 9 && !checkWinner())
             {
-                // all the buttons have been pressed & there is no
-                // determined winner
                 whoseTurn.setText("No winner, only a tie.");
             }
         }
@@ -264,10 +270,12 @@ public class TicTacToe extends JFrame
                                      // increment the counter
 
                 // if the counter has reached 3, there is a winner
-                if(ticTacToe == 3)
+                if(ticTacToe == 3) {
                     return true; 
-                else
+                }
+                else {
                     ticTacToe = 0;
+                }
             }
             
             // if the counter has not reached 3, then there is no
@@ -310,8 +318,8 @@ public class TicTacToe extends JFrame
          */
         private boolean checkDiagonals()
         {
-            int ticTacToe = 0; // counts how many pieces in a row the
-                               // current player has
+            // counts how many pieces in a row the current player has
+            int ticTacToe = 0; 
             
             // this loop goes from upper left to lower right
             for(int i=0; i < pieces.length; i++) 
@@ -336,11 +344,13 @@ public class TicTacToe extends JFrame
                 j++;
             }
             
-            if(ticTacToe == 3)
-                return true; 
-            else
+            if(ticTacToe == 3) {
+                return true;                 
+            }
+            else {
                 ticTacToe = 0;
-            
+            }
+                
             return false;
         }
         
@@ -349,14 +359,18 @@ public class TicTacToe extends JFrame
          * when it is determined that there is a winner and the game
          * is over.
          */
-        private void disableAllPieces()
+        private void disableAllPieces() 
         {
-            for(int i=0; i < pieces.length; i++)
-                for(int j=0; j < pieces[0].length; j++)
+            for(int i=0; i < pieces.length; i++) 
+            {
+                for(int j=0; j < pieces[0].length; j++) 
                 {
-                    if(pieces[i][j].isEnabled())
-                        pieces[i][j].setEnabled(false);                    
+                    if(pieces[i][j].isEnabled())  
+                    {
+                        pieces[i][j].setEnabled(false);
+                    }
                 }
+            }
         }
     }
 }

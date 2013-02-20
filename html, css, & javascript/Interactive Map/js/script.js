@@ -22,7 +22,7 @@ $("document").ready( function() {
 			$(this).addClass('selected'); // add the 'selected' classed to the current dot show it has been currently selected
 
 			var location = '.map_detail#' + $( this ).attr( 'location' ); // get the selected location's name (e.g. 'Steam Engine Row') and create a compound selector
-			var htmlCode = $(location).html(); // get the html code of the 
+			var htmlCfode = $(location).html(); // get the html code of the 
 			var bgImage  = $(location).css('background-image');
 			
 			$('.map_detail_container').fadeOut(500, function() {
