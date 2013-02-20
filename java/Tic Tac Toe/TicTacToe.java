@@ -1,5 +1,4 @@
 /* 
- * Filename     : TicTacToe.java
  * @author      : Kurt Mueller
  * Date Created : 2011/05/11
  *
