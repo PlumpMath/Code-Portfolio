@@ -1,11 +1,16 @@
 /*
- * This program counts both the # of words in a text file and its location within
- * a text file. It allows the user to input as many text files as they like and
- * the user can choose to display a list of all the words found thus far, what file
- * the word is located in, and the location of each word. Users can also search for
- * a specific word, remove a text file and its associated word from the list.
+ * @author : Kurt mueller
+ * Date    : 2011/11/01
  * 
- * This program makes extensive use of hashmaps, hashsets, and iterators.
+ * Program Description:
+ * This program indexes each word in a text file into a hashmap that contains the file(s) where
+ * the word was found as well as the line number(s) it was found on. Users can choose to input
+ * as many text files as they like as well as display a list of the words currenty found and
+ * their susequent file and line number. Users can also search for a specific word's location
+ * and remove a text file and its associated word from the list.
+ *
+ * This program makes extensive use of hashmaps, nested key-value pairs, hashsets, and
+ * iterators.
  */
 package com.kurtronaldmueller.hashmaps;
 
@@ -39,9 +44,7 @@ public class FileIndex {
         // initiate the files parsed list
         filesParsed  = new HashSet<String>();
     }
-    
-  
-    
+     
     /**
      * Adds a file to the file index. It scans in each line of the file, scans each word in that line,
      * and starts adding those words to the index, along with the file and line number it was found in.
@@ -79,35 +82,18 @@ public class FileIndex {
             return false;
         }
         
-        
-        /*
-         * READ IN LINES FROM THE FILE
-         */
-            
-        // whiled the scanned file has more lines
+        // read in lines from the file
         while( scanFile.hasNextLine() ) {
-            
-            // get the next line
+
             scanLine = new Scanner( scanFile.nextLine() );
            
-            /*
-             * PUT WORDS ON CURRENT LINE INTO A TEMPORARY HASHSET
-             */
-            
-            // while the current line has more words,
-            // get rid of any trailing punctuation and read in the next word to the set
-            // add words to the to the wordsInLine set
+            // put words on current line into a temporary hashset            
             while( scanLine.hasNext() ) {    
                 currentWord = fixText( scanLine.next() );
                 wordsInLine.add( currentWord );
             }
-            
-            
-            /* 
-             * ADD WORDS TO HASH MAP 
-             */
-            
-            // while the temporary hashset still has words that need to be indexed
+
+            // add words to the hashmap
             while( ! wordsInLine.isEmpty() ) {
                 
                 // get the next word & then delete it
