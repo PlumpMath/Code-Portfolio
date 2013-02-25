@@ -1,0 +1,56 @@
+body {
+	line-height: 27px;
+}
+
+h1, .piece, .statBar {
+	font-family: 'Antic Slab', serif;
+}
+
+.statBar {
+	text-align: center;
+	font-size: 14px;
+	display: table;
+	margin: 10px auto 0;
+
+}
+
+h1 {
+	font-size: 50px;
+}
+.piece {
+	font-size: 30px;
+	span {
+		margin-top: 12px;
+	}
+}
+
+strong {
+	font: {
+		weight: bolder;
+		size: 18px;
+	};
+}
+
+p, ul {
+	font-family: 'Junge', serif;
+}
+
+em {
+	font-style: italic;	
+}
+
+ul {
+	margin-top: 10px;
+
+	list-style: {
+		type: disc;
+		position: inside;
+	};
+
+	h3 {
+		font-weight: bolder;
+		font: {
+			weight: bolder;
+		};
+	}
+}

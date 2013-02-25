@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tic-Tac-Toe</title>
+    <meta charset='utf-8' />
+    <!-- Javascript files -->
+    <script src='http://code.jquery.com/jquery-latest.js'></script>
+    <script src='src/tic-tac-toe.js'></script>
+    <script src='js/script.js'></script>
+    <!-- CSS files -->
+    <link href='css/tictactoe.css' rel='stylesheet' />
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Antic+Slab|Junge' rel='stylesheet' type='text/css' />
+  </head>
+  <body>
+    <header>
+      <!-- The game title -->
+      <h1>Tic Tac Toe</h1>
+    </header>
+    <content>
+      <!-- The game container -->
+      <div class='ticTacToeContainer'>
+        <!-- The tic-tac-toe game -->
+        <div class='ticTacToe'></div>
+      </div>
+    </content>
+    <footer>
+      <!-- The Instructions for the game -->
+      <div id='instructions'>
+        <p>
+          This <strong>Tic Tac Toe Game</strong> is written as a jQuery plugin. It was developed by <em>Kurt Mueller</em>.
+        </p>
+        <ul id='notes'>
+          <h3>Some notes:</h3>
+          <li>
+            Since jQuery is a prequisite, it requires a connection to the internet.
+          </li>
+          <li>
+            This project utilized a
+            <a href='http://coding.smashingmagazine.com/2011/10/11/essential-jquery-plugin-patterns/'>jQuery Plugin plugin pattern</a>
+            written by
+            <a href='http://addyosmani.com/blog/'>Addy Osmani</a>
+          </li>
+          <li>
+            The A.I. algorithm utilized is the popular
+            <a href='http://www.sarathlakshman.com/2011/04/30/writing-a-tic-tac/'>minimax algorithm</a>
+            implemented by
+            <a href='http://www.sarathlakshman.com/'>Sarath Lakshman.</a>
+          </li>
+          <li>
+            This build tool for this project was
+            <a href='http://gruntjs.com'>Grunt: The JavaScript Task Runner.</a>
+            Grunt comes packaged with
+            <a href='http://phantomjs.org/'>PhantomJS,</a>
+            which runs javascript files through
+            <a href='http://www.jshint.com/'>JS Hint,</a>
+            a Javascript Code Quality Tool, and
+            <a href='http://qunitjs.com/'>QUnit,</a>
+            jQuery's official unit testing software suite, on every save.
+          </li>
+          <li>
+            While the game is playable, the initial first move is slow and the game a.i. is buggy. However, the game itself still works. The algorithm was translated from Python and there are some bugs in the code somewhere.
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

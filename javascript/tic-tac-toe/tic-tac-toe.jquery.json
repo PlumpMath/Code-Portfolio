@@ -1,0 +1,28 @@
+{
+  "name": "tic-tac-toe",
+  "title": "Tic Tac Toe",
+  "description": "This is the Tic Tac Toe plugin for CSE 3901: Project 4 - Tic Tac Toe.",
+  "version": "0.1.0",
+  "homepage": "",
+  "author": {
+    "name": "Jordan Bertke, Kelsey Fritschie, Matthew Meade, Kurt Mueller, Breanne Nowicki",
+    "email": "kurtronaldmueller@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://kurtronaldmueller@bitbucket.org/kurtronaldmueller/cse3901.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}

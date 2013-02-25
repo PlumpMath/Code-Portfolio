@@ -1,0 +1,8 @@
+@mixin board($elements) {
+	@each $element in $elements {
+		#{$element} {
+			@include grid-container;
+		}
+	} // end @each $element
+	
+}

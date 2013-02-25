@@ -1,0 +1,12 @@
+@import "compass/reset"; // reset default html styles
+@import "compass/css3";  // css3 propertiers
+@import "960/grid";      // 960 grid used for layout
+
+// modules
+@import "modules/boardPiece";
+@import "modules/board";
+
+//partials
+@import "partials/general";
+@import "partials/boardElems";
+@import "partials/layout";

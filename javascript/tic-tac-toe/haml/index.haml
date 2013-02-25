@@ -1,0 +1,61 @@
+!!! 5
+%html
+	%head
+		%title Tic-Tac-Toe
+		%meta{:charset => "utf-8"}
+
+		/Javascript files
+		%script{ :src => "http://code.jquery.com/jquery-latest.js" }
+		%script{ :src => "src/tic-tac-toe.js" }
+		%script{ :src => "js/script.js" }
+
+		/CSS files
+		%link{ :rel => "stylesheet", :href => "css/tictactoe.css" }
+
+		/Fonts
+		%link{ :rel => "stylesheet", :type=> "text/css", :href => "http://fonts.googleapis.com/css?family=Antic+Slab|Junge" }
+	%body
+		-#header
+		%header
+			/The game title
+			%h1 Tic Tac Toe
+
+		-#content
+		%content
+			/The game container
+			%div.ticTacToeContainer
+				/The tic-tac-toe game
+				%div.ticTacToe
+		-#footer
+		%footer		
+			/The Instructions for the game
+			%div#instructions
+				%p
+					This <strong>Tic Tac Toe Game</strong> is written as a jQuery plugin. It was developed by <em>Kurt Mueller</em>.
+				%ul#notes
+					%h3 Some notes:
+					%li
+						Since jQuery is a prequisite, it requires a connection to the internet.
+					%li
+						This project utilized a
+						%a{ :href => "http://coding.smashingmagazine.com/2011/10/11/essential-jquery-plugin-patterns/" } jQuery Plugin plugin pattern 
+						written by
+						%a{ :href => "http://addyosmani.com/blog/" } Addy Osmani
+					%li
+						The A.I. algorithm utilized is the popular 
+						%a{ :href => "http://www.sarathlakshman.com/2011/04/30/writing-a-tic-tac/" } minimax algorithm 
+						implemented by 
+						%a{ :href => "http://www.sarathlakshman.com/" } Sarath Lakshman.
+					%li
+						This build tool for this project was
+						%a{ :href => "http://gruntjs.com" } Grunt: The JavaScript Task Runner.
+						Grunt comes packaged with 
+						%a{ :href => "http://phantomjs.org/" } PhantomJS,
+						which runs javascript files through 
+						%a{ :href => "http://www.jshint.com/" } JS Hint,
+						a Javascript Code Quality Tool, and
+						%a{ :href => "http://qunitjs.com/" } QUnit, 
+						jQuery's official unit testing software suite, on every save.
+					%li 
+						While the game is playable, the initial first move is slow and the game a.i. is buggy. However, the game itself still works. The algorithm was translated from Python and there are some bugs in the code somewhere.
+
